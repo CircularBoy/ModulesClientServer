@@ -11,7 +11,6 @@ import {
 
 function App() {
   console.log(router)
-  console.log(typeof router)
   // useEffect(() => {
   //   api.getHouses().then((value) => {
   //     console.log(value)
