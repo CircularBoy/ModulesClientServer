@@ -5,7 +5,7 @@ export default {
     return api.get('houses');
   },
 
-  createHouse: (data) => {
+  createHouse: (data: any) => {
     return api.post('houses/create', data);
   },
 };

@@ -1,17 +1,12 @@
-import {useEffect} from "react";
-import api from "./api"
-import {Provider as ReduxProvider} from "react-redux";
-import store from "./config/store";
-import router from "./config/router";
+import { Provider as ReduxProvider } from 'react-redux';
+import store from './config/store';
+import router from './config/router';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
-  console.log(router)
-  console.log(typeof router)
+  console.log(router);
+  console.log(typeof router);
   // useEffect(() => {
   //   api.getHouses().then((value) => {
   //     console.log(value)
@@ -22,9 +17,8 @@ function App() {
   // })
   return (
     <ReduxProvider store={store}>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </ReduxProvider>
-
   );
 }
 
