@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 module.exports = {
   extends: [
     'airbnb-typescript',
@@ -7,7 +6,13 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['react', '@typescript-eslint', 'jest', 'unused-imports'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+    'jest',
+    'unused-imports',
+    'import-helpers',
+  ],
   env: {
     browser: true,
     es6: true,
@@ -29,6 +34,7 @@ module.exports = {
   rules: {
     'linebreak-style': 'off',
     'import/extensions': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
     'import/no-extraneous-dependencies': 'off',
     'prettier/prettier': [
       'error',
@@ -38,10 +44,32 @@ module.exports = {
     ],
     '@typescript-eslint/no-unused-vars': [
       'error',
-      { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
+      {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: false,
+        argsIgnorePattern: '^_',
+      },
     ],
-    // '@typescript-eslint/no-unused-vars': 'off',
-    // 'no-unused-vars': 'warn',
-    // 'unused-imports/no-unused-imports': 'error',
+
+    'unused-imports/no-unused-imports': 'error',
+    'import-helpers/order-imports': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        groups: [
+          'module',
+          '/^@shared/',
+          '/^@app/',
+          '/^@config/',
+          '/^@services/',
+          '/^@utils/',
+          '/^@assets/',
+          '/^@themes/',
+          ['parent', 'sibling', 'index'],
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
+    ],
   },
 };
