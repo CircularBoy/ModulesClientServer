@@ -1,5 +1,6 @@
-import modules from '../modules';
 import { ReducersMapObject } from 'redux';
+
+import modules from '../modules';
 
 type ModuleReducer = {
   stateName: string;

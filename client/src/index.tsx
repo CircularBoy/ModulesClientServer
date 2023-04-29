@@ -1,4 +1,5 @@
 import { createRoot, Root } from 'react-dom/client';
+
 import App from './App';
 
 const rootElement: Element | null = document.getElementById('root');

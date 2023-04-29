@@ -1,67 +1,17 @@
-import { apiConfig } from '../config/api';
-import houses from './houses/houses.api';
+import modules from '../modules';
 
-const request = async (path: any, method: any, data?: any) => {
-  const options = {
-    method: method,
-    headers: {
-      'content-type': 'application/json',
-    },
-    ...(data ? { body: JSON.stringify(data) } : {}),
-  };
+interface Api {
+  [key: string]: any;
+}
 
-  console.log(options);
-  try {
-    const response = await fetch(`${apiConfig.baseUrl}/${path}`, options);
-    const data1 = await response.json();
-    // console.log({data})
-    return data1;
-  } catch (e) {
-    console.log('response', e);
+const api: Api = {};
+
+Object.values(modules).forEach((module: any) => {
+  for (const item in module.api) {
+    api[item] = module.api[item];
   }
-};
+});
 
-export const api = {
-  get: (path: any) => request(path, 'GET'),
-  post: (path: any, data: any) => request(path, 'POST', data),
-  // get: async (path, method = 'GET', data = {}) => {
-  //
-  // 	const options = {
-  // 		method: method,
-  // 		headers: {
-  // 			'content-type': 'application/json'
-  // 		}
-  // 	}
-  //
-  // 	try {
-  // 		const response = await fetch(`${apiConfig.baseUrl}/${path}`, options)
-  // 		const data = await response.json();
-  // 		console.log({data})
-  // 		return data
-  // 	} catch (e) {
-  // 		console.log('response', e)
-  // 	}
-  // },
-  // post: async (path, method = 'POST', data = {}) => {
-  //
-  // 	const options = {
-  // 		method: method,
-  // 		headers: {
-  // 			'content-type': 'application/json'
-  // 		}
-  // 	}
-  //
-  // 	try {
-  // 		const response = await fetch(`${apiConfig.baseUrl}/${path}`, options)
-  // 		const data = await response.json();
-  // 		console.log({data})
-  // 		return data
-  // 	} catch (e) {
-  // 		console.log('response', e)
-  // 	}
-  // },
-};
+console.log({ api });
 
-export default {
-  ...houses,
-};
+export default api;

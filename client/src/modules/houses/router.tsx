@@ -1,15 +1,16 @@
 import { RouteObject } from 'react-router-dom';
-import Component from './components';
+
+import HousesPage from './components';
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: Component(),
+    element: <HousesPage />,
   },
-  {
-    path: '/house',
-    element: Component(),
-  },
+  // {
+  //   path: '/house',
+  //   element: Component(),
+  // },
 ];
 
 export default routes;

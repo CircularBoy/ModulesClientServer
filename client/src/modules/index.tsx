@@ -1,4 +1,4 @@
-// import _blank from './_blank';
+import _blank from './_blank';
 import houses from './houses';
 
 // console.dir({
@@ -6,6 +6,6 @@ import houses from './houses';
 // 	houses
 // })
 export default {
-  // _blank,
+  _blank,
   houses,
 };

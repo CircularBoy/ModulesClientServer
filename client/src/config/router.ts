@@ -1,5 +1,6 @@
-import modules from '../modules';
 import { createBrowserRouter, RouteObject } from 'react-router-dom';
+
+import modules from '../modules';
 
 const allModules = {
   ...modules,

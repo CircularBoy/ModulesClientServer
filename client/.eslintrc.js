@@ -42,17 +42,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: false,
-        argsIgnorePattern: '^_',
-      },
-    ],
-
-    'unused-imports/no-unused-imports': 'error',
+    '@typescript-eslint/no-unused-vars': 'off',
     'import-helpers/order-imports': [
       'warn',
       {
@@ -72,4 +62,22 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            vars: 'all',
+            args: 'after-used',
+            // ignoreRestSiblings: false,
+            argsIgnorePattern: '^_',
+          },
+        ],
+
+        'unused-imports/no-unused-imports': 'error',
+      },
+    },
+  ],
 };

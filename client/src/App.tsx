@@ -1,22 +1,13 @@
 import { Provider as ReduxProvider } from 'react-redux';
-import store from './config/store';
-import router from './config/router';
-
 import { RouterProvider } from 'react-router-dom';
 
+import router from './config/router';
+import store from './config/store';
+
 function App() {
-  console.log(router);
-  console.log(typeof router);
-  // useEffect(() => {
-  //   api.getHouses().then((value) => {
-  //     console.log(value)
-  //   })
-  //   api.createHouse({name: 'dyadya'}).then((value) => {
-  //     console.log(value)
-  //   })
-  // })
   return (
     <ReduxProvider store={store}>
+      {/*<HousesPage />*/}
       <RouterProvider router={router} />
     </ReduxProvider>
   );

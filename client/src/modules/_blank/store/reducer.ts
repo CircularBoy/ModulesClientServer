@@ -1,6 +1,6 @@
-import { GET_HOUSES } from './action-types';
+import { BLANK } from './action-types';
 
-const stateName = 'house';
+const stateName = 'blank';
 
 const initialState = {
   _loadedAt: '',
@@ -10,10 +10,8 @@ const initialState = {
 };
 
 function reducer(state: typeof initialState = initialState, action?: any) {
-  // const curTime = new Date();
-
   switch (action.type) {
-    case GET_HOUSES:
+    case BLANK:
       return {
         ...state,
       };

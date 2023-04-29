@@ -15,11 +15,13 @@
 //   return <div>Houses</div>;
 // };
 import React from 'react';
+import { useSelector } from 'react-redux';
 // import { RootState } from '../store/types';
 
 const HousesPage = (): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/no-shadow
-  // const state = useSelector((state: any) => state);
+  const state = useSelector((state: any) => state);
+  console.log({ state });
   // const dispatch = useDispatch();
 
   // useEffect(() => {

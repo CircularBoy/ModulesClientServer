@@ -1,13 +1,16 @@
-import modules from '../modules';
-import { takeLatest, all } from 'redux-saga/effects';
-import api from '../api';
+import { take, takeLatest, all } from 'redux-saga/effects';
 
-export default function* rootSaga(pattern: any, worker: any) {
+import modules from '../modules';
+
+export default function* rootSaga(api: any) {
   const moduleSagaList = Object.values(modules).map((module) => {
-    console.log({ moduleSagaList });
     if (module.saga) {
-      return takeLatest('STARTUP', module.saga, api);
+      return takeLatest('STARTAPP', module.saga, api);
     }
   });
+
   yield all([...moduleSagaList]);
+  console.log({ moduleSagaList });
+
+  yield take('STARTAPP');
 }
