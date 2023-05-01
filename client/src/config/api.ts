@@ -9,7 +9,7 @@ const apiConfig = {
   baseUrl: 'http://localhost:3001/api',
 };
 
-const request = async (path: any, method: any, data?: any) => {
+const request = async (path: string, method: string, data?: any) => {
   const options = {
     method: method,
     headers: {
@@ -18,7 +18,6 @@ const request = async (path: any, method: any, data?: any) => {
     ...(data ? { body: JSON.stringify(data) } : {}),
   };
 
-  console.log(options);
   try {
     const response = await fetch(`${apiConfig.baseUrl}/${path}`, options);
     const data1 = await response.json();
@@ -30,8 +29,8 @@ const request = async (path: any, method: any, data?: any) => {
 };
 
 const query = {
-  get: (path: any) => request(path, 'GET'),
-  post: (path: any, data: any) => request(path, 'POST', data),
+  get: (path: string) => request(path, 'GET'),
+  post: (path: string, data: any) => request(path, 'POST', data),
 };
 
 export default query;
