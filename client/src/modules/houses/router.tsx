@@ -4,7 +4,7 @@ import HousesPage from './components';
 
 const routes: RouteObject[] = [
   {
-    path: '/',
+    path: '/houses',
     element: <HousesPage />,
   },
   // {

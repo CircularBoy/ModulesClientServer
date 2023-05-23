@@ -3,11 +3,11 @@ import router from './router';
 import reducer from './store/reducer';
 import saga from './store/saga';
 
-const modules = {
+const module = {
   saga,
   reducer,
   router,
   api,
 };
 
-export default modules;
+export default module;

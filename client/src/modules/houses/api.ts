@@ -1,11 +1,15 @@
-import api from '../../config/api';
+// import { ApiType } from '../../api';
+import axios from '../../config/api';
+import { IHouse } from './type';
 
-export default {
-  getHouses: () => {
-    return api.get('houses');
+const api = {
+  getHouses: async () => {
+    return axios.get<IHouse[]>('houses');
   },
 
-  // createHouse: (data: any) => {
-  //   return api.post('houses/create', data);
-  // },
+  createHouse: (data: any) => {
+    return axios.post<IHouse>('houses/create', data);
+  },
 };
+
+export default api;

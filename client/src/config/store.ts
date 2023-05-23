@@ -1,4 +1,5 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 
 import api from '../api';
@@ -12,12 +13,17 @@ const middlewares = [];
 const sagaMiddleware = createSagaMiddleware();
 middlewares.push(sagaMiddleware);
 
+/* ------------- Dev-tools Middleware ------------- */
+// const devToolsMiddleware = composeWithDevTools({});
+// middlewares.push(devToolsMiddleware);
+
 /* ------------- Assemble Middleware ------------- */
 enhancers.push(applyMiddleware(...middlewares));
-// const reducer = combineReducers(reducers);
 const rootReducer = combineReducers(reducers);
-const store = createStore(rootReducer, compose(...enhancers));
+const store = createStore(rootReducer, composeWithDevTools(...enhancers));
 
 // Start sagas
+// console.log('stor:', api);
+// @ts-ignore
 sagaMiddleware.run(() => rootSaga(api));
 export default store;

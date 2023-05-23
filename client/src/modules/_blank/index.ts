@@ -12,11 +12,11 @@ import saga from './store/saga';
 //   };
 //   router: RouteObject[];
 // }
-const modules = {
+const module = {
   saga,
   reducer,
   router,
   api,
 };
 
-export default modules;
+export default module;

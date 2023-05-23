@@ -14,22 +14,33 @@
 //
 //   return <div>Houses</div>;
 // };
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { getHouses } from '../store/actions';
+
 // import { RootState } from '../store/types';
 
 const HousesPage = (): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  const state = useSelector((state: any) => state);
-  console.log({ state });
+  const dispatch = useDispatch();
+  // const state = useSelector((state: any) => state);
+  // console.log({ state });
   // const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   console.log('blac');
-  //   dispatch(getHouses({}));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch({ type: 'STARTAPP' });
+  }, [dispatch]);
 
-  return <div>Houses</div>;
+  const handleClick = () => {
+    dispatch(getHouses());
+  };
+
+  return (
+    <div>
+      <h1>house</h1>
+      <button onClick={handleClick}>Click</button>
+    </div>
+  );
 };
 
 export default HousesPage;
