@@ -1,6 +1,6 @@
-import { call, fork, takeLatest } from 'redux-saga/effects';
+import { fork, takeLatest } from 'redux-saga/effects';
 
-import { ApiType } from '../../../api';
+import { ApiType } from '../../index.d';
 import { GET_HOUSES } from './action-types';
 
 //
@@ -14,8 +14,10 @@ function* getHousesWatcher(api: ApiType): Generator<any, void, unknown> {
 // Workers
 //
 function* getHousesWorker(api: ApiType): Generator<any, void, unknown> {
-  const response = yield call(api.getHouses);
-  console.log(api);
+  console.log('api', api.blank());
+  // @ts-ignore
+  // const response = yield call(api.getHouses);
+  // console.log(api);
   console.log('get houses worker', response);
 }
 

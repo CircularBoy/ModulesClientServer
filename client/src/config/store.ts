@@ -24,6 +24,5 @@ const store = createStore(rootReducer, composeWithDevTools(...enhancers));
 
 // Start sagas
 // console.log('stor:', api);
-// @ts-ignore
 sagaMiddleware.run(() => rootSaga(api));
 export default store;
