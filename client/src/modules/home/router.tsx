@@ -4,7 +4,7 @@ import ModuleRoot from './components';
 
 const routes: RouteObject[] = [
   {
-    path: '/blank',
+    path: '/',
     element: <ModuleRoot />,
   },
 ];
